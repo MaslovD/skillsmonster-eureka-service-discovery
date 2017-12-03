@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>skillsmonster</groupId>
     <artifactId>eureka-service-discovery</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
     <packaging>jar</packaging>
     <name>eureka-service-discovery</name>
     <description>Eureka service discovery</description>
@@ -19,9 +19,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Dalston.SR4</spring-cloud.version>
+        <profile.name>PROD</profile.name>
         <!-- For Docker hub leave empty; use "localhost:5000/" for a local Docker Registry -->
-        <docker.registry.name></docker.registry.name>
-        <docker.repository.name></docker.repository.name>
+        <!--<docker.registry.name></docker.registry.name>-->
+        <!--<docker.repository.name></docker.repository.name>-->
     </properties>
     <dependencies>
         <dependency>
@@ -48,8 +49,8 @@
     <distributionManagement>
         <repository>
             <id>eureka-service-discovery</id>
-            <name>masdmtr/eureka-service-discovery</name>
-            <!--<url>https://docker.io/masdmtr/eureka-registartion-core</url>-->
+            <!--<name>masdmtr/eureka-service-discovery</name>-->
+            <url>https://docker.io/masdmtr/eureka-registartion-core</url>
         </repository>
     </distributionManagement>
     <build>
@@ -97,7 +98,7 @@
                                 </tags>
 
                                 <cmd>
-                                    <shell>java -jar /jars/${project.build.finalName}.jar</shell>
+                                    <shell>java -Dspring.profiles.active=${profile.name} -jar /jars/${project.build.finalName}.jar</shell>
                                 </cmd>
                                 <assembly>
                                     <basedir>/</basedir>
