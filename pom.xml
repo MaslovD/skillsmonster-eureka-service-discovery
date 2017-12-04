@@ -50,7 +50,7 @@
         <repository>
             <id>eureka-service-discovery</id>
             <!--<name>masdmtr/eureka-service-discovery</name>-->
-            <url>https://docker.io/masdmtr/eureka-registartion-core</url>
+            <!--<url>https://docker.io/masdmtr/eureka-registartion-core</url>-->
         </repository>
     </distributionManagement>
     <build>
@@ -82,13 +82,13 @@
                 <configuration>
                     <!--<registry>${project.registry}</registry>-->
                     <authConfig>
-                        <username>masdmtr</username>
-                        <password>Anna1985$</password>
+                        <username>skillsmonster</username>
+                        <password>password</password>
                     </authConfig>
                     <images>
                         <image>
                             <alias>eureka-service-discovery</alias>
-                            <name>masdmtr/eureka-service-discovery:${project.version}</name>
+                            <name>skillsmonster/eureka-service-discovery:${project.version}</name>
                             <build>
                                 <from>openjdk</from>
                                 <maintainer>Dmitry Maslov</maintainer>
